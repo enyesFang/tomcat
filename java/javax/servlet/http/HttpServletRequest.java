@@ -33,6 +33,8 @@ import javax.servlet.ServletRequest;
  * The servlet container creates an <code>HttpServletRequest</code> object and
  * passes it as an argument to the servlet's service methods
  * (<code>doGet</code>, <code>doPost</code>, etc).
+ * 非线程安全。
+ * @see org.apache.catalina.connector.Request
  */
 public interface HttpServletRequest extends ServletRequest {
 

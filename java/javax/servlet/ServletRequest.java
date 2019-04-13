@@ -489,7 +489,7 @@ public interface ServletRequest {
 
     /**
      * Get the current AsyncContext.
-     *
+     * 获取异步处理上下文。
      * @return The current AsyncContext
      *
      * @throws IllegalStateException if the request is not in asynchronous mode
