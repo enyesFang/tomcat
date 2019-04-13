@@ -141,7 +141,7 @@ public interface ServletRequest {
      * Retrieves the body of the request as binary data using a
      * {@link ServletInputStream}. Either this method or {@link #getReader} may
      * be called to read the body, not both.
-     *
+     * 注意：HttpServletRequest.getInputStream()和getParameter*()不能同时使用。
      * @return a {@link ServletInputStream} object containing the body of the
      *         request
      * @exception IllegalStateException
@@ -170,7 +170,7 @@ public interface ServletRequest {
      * an HTTP POST request, then reading the body directly via
      * {@link #getInputStream} or {@link #getReader} can interfere with the
      * execution of this method.
-     *
+     * 注意：HttpServletRequest.getInputStream()和getParameter*()不能同时使用。
      * @param name
      *            a <code>String</code> specifying the name of the parameter
      * @return a <code>String</code> representing the single value of the

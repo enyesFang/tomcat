@@ -1,3 +1,10 @@
+## idea导入
+1. 下载Apache ant
+2. sh ~/installFiles/apache-ant-1.10.5/bin/ant compile
+3. idea open 打开tomcat工程
+4. 将java设置为source
+
+
 ## Welcome to Apache Tomcat!
 
 ### What Is It?

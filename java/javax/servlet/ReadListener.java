@@ -20,8 +20,13 @@ import java.io.IOException;
 
 /**
  * Receives notification of read events when using non-blocking IO.
- *
+ * Servlet 3.0对请求的处理虽然是异步的，但是对InputStream和OutputStream的IO操作却依然是阻塞的，
+ * 对于数据量大的请求体或者返回体，阻塞IO也将导致不必要的等待。
+ * 因此在Servlet 3.1中引入了非阻塞IO（参考下图红框内容），
+ * 通过在HttpServletRequest和HttpServletResponse中分别添加ReadListener和WriterListener方式，
+ * 只有在IO数据满足一定条件时（比如数据准备好时），才进行后续的操作。
  * @since Servlet 3.1
+ * @see ServletInputStream#setReadListener(ReadListener)
  */
 public interface ReadListener extends java.util.EventListener{
 
