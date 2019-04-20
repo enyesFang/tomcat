@@ -24,8 +24,23 @@ import java.util.EventListener;
  * @since Servlet 3.0
  */
 public interface AsyncListener extends EventListener {
+    /**
+     * 异步执行完毕事件。
+     */
     void onComplete(AsyncEvent event) throws IOException;
+
+    /**
+     * 异步线程执行超时。
+     */
     void onTimeout(AsyncEvent event) throws IOException;
+
+    /**
+     * 异步线程出错。
+     */
     void onError(AsyncEvent event) throws IOException;
+
+    /**
+     * 异步线程开始。
+     */
     void onStartAsync(AsyncEvent event) throws IOException;
 }
