@@ -246,6 +246,8 @@ fi
 if [ -z "$JSSE_OPTS" ] ; then
   JSSE_OPTS="-Djdk.tls.ephemeralDHKeySize=2048"
 fi
+
+# 可以在此增加Java options参数
 JAVA_OPTS="$JAVA_OPTS $JSSE_OPTS"
 
 # Register custom URL handlers
@@ -400,6 +402,7 @@ elif [ "$1" = "run" ]; then
       org.apache.catalina.startup.Bootstrap "$@" start
   fi
 
+# 启动tomcat命令。
 elif [ "$1" = "start" ] ; then
 
   if [ ! -z "$CATALINA_PID" ]; then

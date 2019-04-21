@@ -66,15 +66,17 @@ public final class Bootstrap {
         // Will always be non-null
         String userDir = System.getProperty("user.dir");
 
-        // Home first
+        // Home first.第一步初始化Catania Home路径。
         String home = System.getProperty(Globals.CATALINA_HOME_PROP);
         File homeFile = null;
 
         if (home != null) {
             File f = new File(home);
             try {
+                // getCanonicalPath会将文件路径解析为与操作系统相关的唯一的规范形式的字符串,比如Linux ./.. 等都会被移除。
                 homeFile = f.getCanonicalFile();
             } catch (IOException ioe) {
+                // getCanonicalFile可能抛出IO异常，而getAbsoluteFile不会有异常。
                 homeFile = f.getAbsoluteFile();
             }
         }
@@ -108,7 +110,7 @@ public final class Bootstrap {
         System.setProperty(
                 Globals.CATALINA_HOME_PROP, catalinaHomeFile.getPath());
 
-        // Then base
+        // Then base.
         String base = System.getProperty(Globals.CATALINA_BASE_PROP);
         if (base == null) {
             catalinaBaseFile = catalinaHomeFile;
@@ -130,6 +132,7 @@ public final class Bootstrap {
 
     /**
      * Daemon reference.
+     * org.apache.catalina.startup.Catalina 对象
      */
     private Object catalinaDaemon = null;
 
@@ -282,6 +285,7 @@ public final class Bootstrap {
 
     /**
      * Load daemon.
+     * 通过反射调用 catalinaDaemon 对象的 load 方法.
      */
     private void load(String[] arguments)
         throws Exception {
@@ -340,6 +344,7 @@ public final class Bootstrap {
 
     /**
      * Start the Catalina daemon.
+     * 通过反射调用 catalinaDaemon 对象上的 start 方法.
      * @throws Exception Fatal start error
      */
     public void start()

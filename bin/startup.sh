@@ -57,4 +57,6 @@ else
   fi
 fi
 
+# exec 与 sh区别？？
+# exec执行命令： ./bin/catalina.sh start
 exec "$PRGDIR"/"$EXECUTABLE" start "$@"

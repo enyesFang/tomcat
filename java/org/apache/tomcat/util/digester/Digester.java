@@ -77,6 +77,11 @@ import org.xml.sax.helpers.AttributesImpl;
  * <p><strong>IMPLEMENTATION NOTE</strong> - A bug in Xerces 2.0.2 prevents
  * the support of XML schema. You need Xerces 2.1/2.3 and up to make
  * this class working with XML schema</p>
+ * 介绍一下 Digester 的一些基础知识。一般来说 Java 里解析 xml 文件有两种方式：
+ * 一种是 Dom4J 之类将文件全部读取到内存中，在内存里构造一棵 Dom 树的方式来解析。
+ * 一种是 SAX 的读取文件流，在流中碰到相应的xml节点触发相应的节点事件回调相应方法，
+ * 基于事件的解析方式，优点是不需要先将文件全部读取到内存中。
+ * Digester 本身是采用 SAX 的解析方式，在其上提供了一层包装，对于使用者更简便友好罢了。
  */
 public class Digester extends DefaultHandler2 {
 
@@ -703,6 +708,7 @@ public class Digester extends DefaultHandler2 {
     /**
      * Set the validating parser flag.  This must be called before
      * <code>parse()</code> is called the first time.
+     *  解析xml时是否需要进行DTD的规则校验。
      *
      * @param validating The new validating parser flag.
      */
@@ -722,7 +728,7 @@ public class Digester extends DefaultHandler2 {
     /**
      * Set the rules validation flag.  This must be called before
      * <code>parse()</code> is called the first time.
-     *
+     * 是否进行节点设置规则校验,如果xml中相应节点没有设置解析规则会在控制台显示提示信息
      * @param rulesValidation The new rules validation flag.
      */
     public void setRulesValidation(boolean rulesValidation) {

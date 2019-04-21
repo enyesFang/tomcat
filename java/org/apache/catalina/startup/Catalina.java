@@ -281,8 +281,12 @@ public class Catalina {
         long t1=System.currentTimeMillis();
         // Initialize the digester
         Digester digester = new Digester();
+        // 设置为false表示解析xml时不需要进行DTD的规则校验
         digester.setValidating(false);
+        // 是否进行节点设置规则校验,如果xml中相应节点没有设置解析规则会在控制台显示提示信息
         digester.setRulesValidation(true);
+        // 将xml节点中的className作为假属性，不必调用默认的setter方法
+        // （一般的节点属性在解析时将会以属性值作为入参调用该节点相应对象的setter方法，而className属性的作用是提示解析器用该属性的值来实例化对象）
         Map<Class<?>, List<String>> fakeAttributes = new HashMap<>();
         // Ignore className on all elements
         List<String> objectAttrs = new ArrayList<>();
@@ -300,9 +304,11 @@ public class Catalina {
         digester.setUseContextClassLoader(true);
 
         // Configure the actions we will be using
+        // addObjectCreate方法的意思是碰到xml文件中的Server节点则创建StandardServer对象
         digester.addObjectCreate("Server",
                                  "org.apache.catalina.core.StandardServer",
                                  "className");
+        // 根据Server节点中的属性信息调用相应属性的setter方法，以上面的xml文件为例则会调用setPort、setShutdown方法，入参分别是8005、SHUTDOWN
         digester.addSetProperties("Server");
         digester.addSetNext("Server",
                             "setServer",
@@ -536,6 +542,11 @@ public class Catalina {
 
     /**
      * Start a new server instance.
+     * 该方法做的事情就两个：
+     * 一是创建一个 Digester 对象，将当前对象压入 Digester 里的对象栈顶，
+     *  根据 inputSource 里设置的文件 xml 路径及所创建的 Digester 对象所包含的解析规则生成相应对象，
+     *  并调用相应方法将对象之间关联起来。
+     * 二是调用 Server 接口对象的 init 方法。
      */
     public void load() {
 
@@ -558,6 +569,7 @@ public class Catalina {
         // Create and execute our Digester
         Digester digester = createStartDigester();
 
+        // digester 加载server.xml 配置文件。
         try (ConfigurationSource.Resource resource = ConfigFileLoader.getSource().getServerXml()) {
             InputStream inputStream = resource.getInputStream();
             InputSource inputSource = new InputSource(resource.getURI().toURL().toString());

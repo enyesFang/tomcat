@@ -245,6 +245,7 @@ public final class Globals {
     /**
      * Name of the system property containing
      * the tomcat product installation path
+     * tomcat文件路径，如启动脚本：-Dcatalina.home=/Users/fangchao118/installFiles/apache-tomcat-8.5.40
      */
     public static final String CATALINA_HOME_PROP = "catalina.home";
 
@@ -252,6 +253,8 @@ public final class Globals {
     /**
      * Name of the system property containing
      * the tomcat instance installation path
+     * 启动脚本：-Dcatalina.base=/Users/fangchao118/installFiles/apache-tomcat-8.5.40
+     * @see #CATALINA_HOME_PROP 的区别是啥？
      */
     public static final String CATALINA_BASE_PROP = "catalina.base";
 
