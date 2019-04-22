@@ -139,6 +139,7 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
 
     /**
      * The set of Services associated with this Server.
+     * 一个Server对应多个StandardService。
      */
     private Service services[] = new Service[0];
     private final Object servicesLock = new Object();

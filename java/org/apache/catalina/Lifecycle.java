@@ -83,7 +83,7 @@ package org.apache.catalina;
 public interface Lifecycle {
 
 
-    // ----------------------------------------------------- Manifest Constants
+    // ----------------------------------------------------- Manifest Constants -- 生命周期的事件类型。
 
 
     /**
@@ -175,7 +175,7 @@ public interface Lifecycle {
 
     /**
      * Add a LifecycleEvent listener to this component.
-     *
+     * 增加生命周期事件监听器。
      * @param listener The listener to add
      */
     public void addLifecycleListener(LifecycleListener listener);
@@ -183,7 +183,7 @@ public interface Lifecycle {
 
     /**
      * Get the life cycle listeners associated with this life cycle.
-     *
+     * 获取所有已注册的监听器。
      * @return An array containing the life cycle listeners associated with this
      *         life cycle. If this component has no listeners registered, a
      *         zero-length array is returned.
@@ -193,7 +193,7 @@ public interface Lifecycle {
 
     /**
      * Remove a LifecycleEvent listener from this component.
-     *
+     * 移除一个监听器。
      * @param listener The listener to remove
      */
     public void removeLifecycleListener(LifecycleListener listener);
