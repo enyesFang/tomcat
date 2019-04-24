@@ -507,6 +507,7 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
     @Override
     public void addService(Service service) {
 
+        // service 与 Server 双向关联。
         service.setServer(this);
 
         synchronized (servicesLock) {

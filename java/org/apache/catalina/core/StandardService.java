@@ -119,6 +119,12 @@ public class StandardService extends LifecycleMBeanBase implements Service {
     }
 
 
+    /**
+     * 1. 当前Service是否已经关联Container，如果已经关联，则接触关联关系，如果旧的Container已经启动，则结束它的生命周期。
+     * 2. 替换新的Container，初始化并启动生命周期。
+     * 3. 发出事件通知监听者。
+     * @param engine The new Engine
+     */
     @Override
     public void setContainer(Engine engine) {
         Engine oldEngine = this.engine;
@@ -208,7 +214,7 @@ public class StandardService extends LifecycleMBeanBase implements Service {
     /**
      * Add a new Connector to the set of defined Connectors, and associate it
      * with this Service's Container.
-     *
+     * 增加一个新Connector，并开始其生命周期，然后发送事件通知监听者。
      * @param connector The Connector to be added
      */
     @Override
@@ -216,6 +222,7 @@ public class StandardService extends LifecycleMBeanBase implements Service {
 
         synchronized (connectorsLock) {
             connector.setService(this);
+            // 存储Connector的是数组，而不是List。
             Connector results[] = new Connector[connectors.length + 1];
             System.arraycopy(connectors, 0, results, 0, connectors.length);
             results[connectors.length] = connector;

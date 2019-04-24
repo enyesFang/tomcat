@@ -47,7 +47,7 @@ import org.apache.tomcat.util.res.StringManager;
 
 /**
  * Implementation of a Coyote connector.
- *
+ * 连接器。主要负责对外交流。
  * @author Craig R. McClanahan
  * @author Remy Maucherat
  */

@@ -72,7 +72,8 @@ import org.apache.juli.logging.Log;
  *     resources, enabling custom linkages to existing server components when
  *     Catalina is embedded in a larger server.
  * </ul>
- *
+ * 主要处理Connector接收的请求，主要是处理内部事务。
+ * @see Service
  * @author Craig R. McClanahan
  * @author Remy Maucherat
  */

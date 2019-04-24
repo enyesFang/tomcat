@@ -44,7 +44,8 @@ import org.apache.catalina.startup.Catalina;
  * <strong>NOTE</strong> - The concrete implementation of this class should
  * register the (singleton) instance with the <code>ServerFactory</code>
  * class in its constructor(s).
- *
+ * Server即Catalina Servlet容器。
+ * Server维护所有Service的生命周期。
  * @author Craig R. McClanahan
  */
 public interface Server extends Lifecycle {

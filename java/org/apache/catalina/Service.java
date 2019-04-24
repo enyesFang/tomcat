@@ -30,8 +30,10 @@ import org.apache.catalina.mapper.Mapper;
  * A given JVM can contain any number of Service instances; however, they are
  * completely independent of each other and share only the basic JVM facilities
  * and classes on the system class path.
- *
+ * 一个Service将一个容器Container和多个连接器Connector组装在一起，对外提供服务。
+ * 主要是为了关联Container和Connector。
  * @author Craig R. McClanahan
+ * @see org.apache.catalina.core.StandardService Service接口的标准实现。
  */
 public interface Service extends Lifecycle {
 

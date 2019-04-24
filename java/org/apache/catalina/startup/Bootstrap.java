@@ -132,7 +132,8 @@ public final class Bootstrap {
 
     /**
      * Daemon reference.
-     * org.apache.catalina.startup.Catalina 对象
+     * 为什么是Object反射，而不是Catalina直接调用呢？
+     * @see org.apache.catalina.startup.Catalina 对象
      */
     private Object catalinaDaemon = null;
 

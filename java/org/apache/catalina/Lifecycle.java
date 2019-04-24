@@ -77,7 +77,11 @@ package org.apache.catalina;
  * The {@link LifecycleEvent}s fired during state changes are defined in the
  * methods that trigger the changed. No {@link LifecycleEvent}s are fired if the
  * attempted transition is not valid.
- *
+ * Tomcat中组件的生命周期都是通过Lifecycle接口来控制的，组件只要继承这个接口并实现其中的方法就可以统一被拥有它的组件控制了，
+ * 这样一层一层的直到一个最高级的组件就可以控制 Tomcat 中所有组件的生命周期，这个最高的组件就是 Server，
+ * 而控制 Server 的是 Startup，也就是您启动和关闭 Tomcat。
+ * @see org.apache.catalina.startup.Catalina Catalina如何启动Server？
+ * @see org.apache.catalina.startup.Bootstrap BootStrap如果启动Catalina？
  * @author Craig R. McClanahan
  */
 public interface Lifecycle {
@@ -148,6 +152,7 @@ public interface Lifecycle {
 
     /**
      * The LifecycleEvent type for the "periodic" event.
+     * 心跳事件。
      */
     public static final String PERIODIC_EVENT = "periodic";
 
