@@ -47,7 +47,10 @@ import org.apache.tomcat.util.res.StringManager;
 
 /**
  * Implementation of a Coyote connector.
- * 连接器。主要负责对外交流。
+ * 连接器。
+ * Connector 最重要的功能就是接收连接请求然后分配线程让 Container 来处理这个请求。
+ * 接收客户端的发过来的 tcp 连接请求，创建一个 Request 和 Response 对象分别用于和请求端交换数据，
+ * 然后会产生一个线程来处理这个请求并把产生的 Request 和 Response 对象传给处理这个请求的线程，处理这个请求的线程就是 Container 组件要做的事了
  * @author Craig R. McClanahan
  * @author Remy Maucherat
  */
@@ -243,6 +246,7 @@ public class Connector extends LifecycleMBeanBase  {
 
     /**
      * Coyote protocol handler.
+     * 协议处理器。维护了该协议处理的线程池。
      */
     protected final ProtocolHandler protocolHandler;
 

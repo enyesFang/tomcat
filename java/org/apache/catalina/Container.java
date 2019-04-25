@@ -73,6 +73,9 @@ import org.apache.juli.logging.Log;
  *     Catalina is embedded in a larger server.
  * </ul>
  * 主要处理Connector接收的请求，主要是处理内部事务。
+ * Container 容器的设计用的是典型的责任链的设计模式，
+ * 它有四个子容器组件构成，分别是：Engine、Host、Context、Wrapper，
+ * 这四个组件是父子关系，Engine 包含 Host,Host 包含 Context，Context 包含 Wrapper。
  * @see Service
  * @author Craig R. McClanahan
  * @author Remy Maucherat

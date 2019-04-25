@@ -103,6 +103,7 @@ public class StandardPipeline extends LifecycleBase implements Pipeline {
 
     /**
      * The first valve associated with this Pipeline.
+     * 管道维护Value处理器链式结构。
      */
     protected Valve first = null;
 
