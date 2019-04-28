@@ -43,7 +43,7 @@ import org.apache.juli.logging.LogFactory;
  * roundabout approach is to keep the Catalina internal classes (and any
  * other classes they depend on, such as an XML parser) out of the system
  * class path and therefore not visible to application level classes.
- *
+ * @see Tomcat Tomcat7嵌入式功能。
  * @author Craig R. McClanahan
  * @author Remy Maucherat
  */

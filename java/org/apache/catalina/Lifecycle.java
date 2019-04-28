@@ -80,6 +80,7 @@ package org.apache.catalina;
  * Tomcat中组件的生命周期都是通过Lifecycle接口来控制的，组件只要继承这个接口并实现其中的方法就可以统一被拥有它的组件控制了，
  * 这样一层一层的直到一个最高级的组件就可以控制 Tomcat 中所有组件的生命周期，这个最高的组件就是 Server，
  * 而控制 Server 的是 Startup，也就是您启动和关闭 Tomcat。
+ * 观察者模式。
  * @see org.apache.catalina.startup.Catalina Catalina如何启动Server？
  * @see org.apache.catalina.startup.Bootstrap BootStrap如果启动Catalina？
  * @author Craig R. McClanahan

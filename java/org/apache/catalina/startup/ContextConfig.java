@@ -114,7 +114,7 @@ import org.xml.sax.SAXParseException;
 /**
  * Startup event listener for a <b>Context</b> that configures the properties
  * of that Context, and the associated defined servlets.
- *
+ * 负责整个web应用的配置文件的解析工作。
  * @author Craig R. McClanahan
  */
 public class ContextConfig implements LifecycleListener {
@@ -448,6 +448,7 @@ public class ContextConfig implements LifecycleListener {
      */
     protected void contextConfig(Digester digester) {
 
+        // 读取context.xml（默认conf/context.xml）
         String defaultContextXml = null;
 
         // Open the default context.xml file, if it exists
@@ -726,6 +727,7 @@ public class ContextConfig implements LifecycleListener {
     protected synchronized void init() {
         // Called from StandardContext.init()
 
+        // 创建用于解析xml配置文件的contextDigester对象。
         Digester contextDigester = createContextDigester();
         contextDigester.getParser();
 
@@ -757,6 +759,7 @@ public class ContextConfig implements LifecycleListener {
 
     /**
      * Process a "contextConfig" event for this Context.
+     * 解析web.xml文件。
      */
     protected synchronized void configureStart() {
         // Called from StandardContext.start()

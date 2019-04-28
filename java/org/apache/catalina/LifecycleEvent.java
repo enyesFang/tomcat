@@ -51,6 +51,8 @@ public final class LifecycleEvent extends EventObject {
 
     /**
      * The event type this instance represents.
+     * @see Lifecycle#AFTER_DESTROY_EVENT 类型都维护在Lifecycle。
+     * @see LifecycleState 状态的枚举。
      */
     private final String type;
 

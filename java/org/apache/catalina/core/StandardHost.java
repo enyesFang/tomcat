@@ -115,6 +115,7 @@ public class StandardHost extends ContainerBase implements Host {
     /**
      * The Java class name of the default Context implementation class for
      * deployed web applications.
+     * 默认的子容器Context实现类.
      */
     private String contextClass =
         "org.apache.catalina.core.StandardContext";
@@ -681,7 +682,7 @@ public class StandardHost extends ContainerBase implements Host {
     /**
      * Add a child Container, only if the proposed child is an implementation
      * of Context.
-     *
+     * Host的子节点必须是Context类型。
      * @param child Child container to be added
      */
     @Override

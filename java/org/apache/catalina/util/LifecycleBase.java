@@ -43,6 +43,7 @@ public abstract class LifecycleBase implements Lifecycle {
 
     /**
      * The list of registered LifecycleListeners for event notifications.
+     * 注意使用的是CopyOnWriteArrayList，否则fireLifecycleEvent方法会有并发问题。
      */
     private final List<LifecycleListener> lifecycleListeners = new CopyOnWriteArrayList<>();
 
