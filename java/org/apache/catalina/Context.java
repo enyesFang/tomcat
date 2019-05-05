@@ -56,6 +56,7 @@ import org.apache.tomcat.util.http.CookieProcessor;
  * of Wrapper (representing individual servlet definitions).
  * <p>
  * 一个Context对应一个Web工程，在tomcat server.xml中的Context节点。
+ * Context容器的配置属性由应用的web.xml指定。
  * 父容器是Host。
  * @see org.apache.catalina.startup.Tomcat#addWebapp(Host, String, String) addWebapp返回Context节点。
  * @author Craig R. McClanahan
@@ -937,7 +938,7 @@ public interface Context extends Container, ContextBind {
      * the Java implementation class appropriate for this Context
      * implementation.  The constructor of the instantiated Wrapper
      * will have been called, but no properties will have been set.
-     *
+     * 创建Servlet Wrapper。
      * @return a newly created wrapper instance that is used to wrap a Servlet
      */
     public Wrapper createWrapper();

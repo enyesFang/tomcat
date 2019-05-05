@@ -124,6 +124,7 @@ import org.xml.sax.ext.EntityResolver2;
  * Then a request to <code>/context/static/images/tomcat.jpg</code> will succeed
  * while a request to <code>/context/images/tomcat2.jpg</code> will fail.
  * </p>
+ * tomcat conf/web.xml中配置的默认Servlet。
  * @author Craig R. McClanahan
  * @author Remy Maucherat
  */

@@ -28,8 +28,10 @@ import org.apache.tomcat.util.res.StringManager;
 /**
  * Representation of a servlet definition for a web application, as represented
  * in a <code>&lt;servlet&gt;</code> element in the deployment descriptor.
+ * web.xml中配置的servlet定义。
+ * servlet的mapping配置在WebXml中映射。
+ * @see WebXml
  */
-
 public class ServletDef implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -145,6 +147,7 @@ public class ServletDef implements Serializable {
     /**
      * The set of initialization parameters for this servlet, keyed by
      * parameter name.
+     * Servlet定义的初始化参数。
      */
     private final Map<String, String> parameters = new HashMap<>();
 
@@ -171,7 +174,8 @@ public class ServletDef implements Serializable {
     }
 
     /**
-     * The load-on-startup order for this servlet
+     * The load-on-startup order for this servlet。
+     * 当该配置大于0，在Context容器启动时的时候就会被实例化。
      */
     private Integer loadOnStartup = null;
 

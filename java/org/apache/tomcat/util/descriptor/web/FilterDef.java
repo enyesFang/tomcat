@@ -28,7 +28,7 @@ import org.apache.tomcat.util.res.StringManager;
 /**
  * Representation of a filter definition for a web application, as represented
  * in a <code>&lt;filter&gt;</code> element in the deployment descriptor.
- *
+ * web.xml中配置的filter定义。
  * @author Craig R. McClanahan
  */
 public class FilterDef implements Serializable {
@@ -133,6 +133,7 @@ public class FilterDef implements Serializable {
     /**
      * The set of initialization parameters for this filter, keyed by
      * parameter name.
+     * filter的初始化参数。
      */
     private final Map<String, String> parameters = new HashMap<>();
 

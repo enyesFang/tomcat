@@ -280,6 +280,9 @@ public class WebXml extends XmlEncodingBase implements DocumentProperties.Charse
     // TODO: Should support multiple display-name elements with language
     // TODO: Should support multiple icon elements
     // TODO: Description for init-param is ignored
+    /**
+     * web.xml中配置的filter集合。
+     */
     private final Map<String,FilterDef> filters = new LinkedHashMap<>();
     public void addFilter(FilterDef filter) {
         if (filters.containsKey(filter.getFilterName())) {

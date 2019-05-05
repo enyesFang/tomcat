@@ -242,6 +242,7 @@ public class ContextConfig implements LifecycleListener {
 
     /**
      * Obtain the location of the default deployment descriptor.
+     * 默认的web.xml，放在Tomcat/conf/web.xml中。
      *
      * @return The path to the default web.xml. If not absolute, it is relative
      *         to CATALINA_BASE.
@@ -1254,7 +1255,10 @@ public class ContextConfig implements LifecycleListener {
         javaClassCache.clear();
     }
 
-
+    /**
+     * 根据webxml配置初始化Context。
+     * @param webxml
+     */
     private void configureContext(WebXml webxml) {
         // As far as possible, process in alphabetical order so it is easy to
         // check everything is present
@@ -1343,6 +1347,8 @@ public class ContextConfig implements LifecycleListener {
         for (ContextService service : webxml.getServiceRefs().values()) {
             context.getNamingResources().addService(service);
         }
+
+        // 将Servlet定义转换为Servlet Wrapper，注册到Context容器中。
         for (ServletDef servlet : webxml.getServlets().values()) {
             Wrapper wrapper = context.createWrapper();
             // Description is ignored

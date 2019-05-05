@@ -43,7 +43,7 @@ import javax.servlet.UnavailableException;
  * Child Containers are not allowed on Wrapper implementations, so the
  * <code>addChild()</code> method should throw an
  * <code>IllegalArgumentException</code>.
- *
+ * Servlet的包装类，将Servlet包装成子容器注册到Context中。
  * @author Craig R. McClanahan
  */
 public interface Wrapper extends Container {

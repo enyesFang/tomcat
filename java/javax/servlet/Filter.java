@@ -42,6 +42,7 @@ import java.io.IOException;
  * 9) Mime-type chain Filter <br>
  *
  * @since Servlet 2.3
+ * @see org.apache.tomcat.util.descriptor.web.FilterDef filter定义
  */
 public interface Filter {
 
