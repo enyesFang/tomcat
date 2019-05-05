@@ -23,7 +23,7 @@ import java.util.EventListener;
  * servlet context of the web application they are part of. To receive
  * notification events, the implementation class must be configured in the
  * deployment descriptor for the web application.
- *
+ * 在Context容器启动之后不能再添加新的该listener。
  * @see ServletContextEvent
  * @since v 2.3
  */
@@ -35,6 +35,7 @@ public interface ServletContextListener extends EventListener {
      * All ServletContextListeners are notified of context initialization before
      * any filter or servlet in the web application is initialized.
      * The default implementation is a NO-OP.
+     * Context容器初始化时触发，所有的Filter和Servlet的init方法调用之前触发。
      * @param sce Information about the ServletContext that was initialized
      */
     public default void contextInitialized(ServletContextEvent sce) {
@@ -45,6 +46,7 @@ public interface ServletContextListener extends EventListener {
      * servlets and filters have been destroy()ed before any
      * ServletContextListeners are notified of context destruction.
      * The default implementation is a NO-OP.
+     * Context容器销毁，在所有的Filter和Servlet的destroy方法调用之后触发。
      * @param sce Information about the ServletContext that was destroyed
      */
     public default void contextDestroyed(ServletContextEvent sce) {

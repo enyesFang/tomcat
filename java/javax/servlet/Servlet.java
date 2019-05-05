@@ -50,7 +50,10 @@ import java.io.IOException;
  * startup information, and the <code>getServletInfo</code> method, which allows
  * the servlet to return basic information about itself, such as author,
  * version, and copyright.
- *
+ * Servlet运行模式是典型的"握手型交互式"：两个模块为了交换数据通常都会准备一个交换场景，这个场景一直跟随这个交易过程直到这个交易完成为止。
+ * 这个交易场景的初始化是根据这次交易对象指定的参数来定制的，这些指定参数通常就是一个配置类。
+ * 所以，交易场景就是ServletContext；定制的参数集合由ServletConfig来描述，而ServletRequest和ServletResponse就是交互的具体对象，
+ * 它们通常作为运输工具来传递交互结果。
  * @see GenericServlet
  * @see javax.servlet.http.HttpServlet
  */
@@ -84,6 +87,7 @@ public interface Servlet {
      *
      * @see UnavailableException
      * @see #getServletConfig
+     * @see org.apache.catalina.core.StandardWrapperFacade 参数实现类
      */
     public void init(ServletConfig config) throws ServletException;
 

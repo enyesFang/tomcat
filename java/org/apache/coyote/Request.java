@@ -51,7 +51,8 @@ import org.apache.tomcat.util.res.StringManager;
  *   <li>"org.apache.tomcat.request" - allows access to the low-level
  *       request object in trusted applications
  * </ul>
- *
+ * Tomcat接收到消息会创建该Request和Response。
+ * @see Response
  * @author James Duncan Davidson [duncan@eng.sun.com]
  * @author James Todd [gonzo@eng.sun.com]
  * @author Jason Hunter [jch@eng.sun.com]

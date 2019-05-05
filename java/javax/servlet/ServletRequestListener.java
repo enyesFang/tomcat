@@ -33,7 +33,9 @@ public interface ServletRequestListener extends EventListener {
     /**
      * The request is about to go out of scope of the web application.
      * The default implementation is a NO-OP.
+     * 当HTTPServletRequest对象在调用完用户Servlet的service之后该方法被调用。
      * @param sre Information about the request
+     *
      */
     public default void requestDestroyed (ServletRequestEvent sre) {
     }
@@ -41,6 +43,7 @@ public interface ServletRequestListener extends EventListener {
     /**
      * The request is about to come into scope of the web application.
      * The default implementation is a NO-OP.
+     * 当HttpServletRequest对象被传递到用户的Servlet的service方法之前该方法被触发。
      * @param sre Information about the request
      */
     public default void requestInitialized (ServletRequestEvent sre) {

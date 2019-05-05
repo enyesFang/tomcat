@@ -33,7 +33,10 @@ public interface ServletContextAttributeListener extends EventListener {
      * Notification that a new attribute was added to the servlet context.
      * Called after the attribute is added.
      * The default implementation is a NO-OP.
+     * 当调用ServletContext#setAttribute(String, Object) 方法时触发。
+     * @see ServletContext#setAttribute(String, Object)
      * @param scae Information about the new attribute
+     *
      */
     public default void attributeAdded(ServletContextAttributeEvent scae) {
     }
@@ -42,6 +45,7 @@ public interface ServletContextAttributeListener extends EventListener {
      * Notification that an existing attribute has been removed from the servlet
      * context. Called after the attribute is removed.
      * The default implementation is a NO-OP.
+     * @see ServletContext#removeAttribute(String) 调用该方法时触发。
      * @param scae Information about the removed attribute
      */
     public default void attributeRemoved(ServletContextAttributeEvent scae) {
@@ -51,6 +55,7 @@ public interface ServletContextAttributeListener extends EventListener {
      * Notification that an attribute on the servlet context has been replaced.
      * Called after the attribute is replaced.
      * The default implementation is a NO-OP.
+     * @see ServletContext#setAttribute(String, Object) 设置的attribute已经存在
      * @param scae Information about the replaced attribute
      */
     public default void attributeReplaced(ServletContextAttributeEvent scae) {

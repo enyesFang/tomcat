@@ -35,6 +35,7 @@ public interface ServletRequestAttributeListener extends EventListener {
      * Notification that a new attribute was added to the
      * servlet request. Called after the attribute is added.
      * The default implementation is a NO-OP.
+     * @see ServletRequest#setAttribute(String, Object)
      * @param srae Information about the new request attribute
      */
     public default void attributeAdded(ServletRequestAttributeEvent srae) {
@@ -44,6 +45,7 @@ public interface ServletRequestAttributeListener extends EventListener {
      * Notification that an existing attribute has been removed from the
      * servlet request. Called after the attribute is removed.
      * The default implementation is a NO-OP.
+     * @see ServletRequest#removeAttribute(String)
      * @param srae Information about the removed request attribute
      */
     public default void attributeRemoved(ServletRequestAttributeEvent srae) {
@@ -53,6 +55,7 @@ public interface ServletRequestAttributeListener extends EventListener {
      * Notification that an attribute was replaced on the
      * servlet request. Called after the attribute is replaced.
      * The default implementation is a NO-OP.
+     * @see ServletRequest#setAttribute(String, Object) 设置已经存在的attribute。
      * @param srae Information about the replaced request attribute
      */
     public default void attributeReplaced(ServletRequestAttributeEvent srae) {

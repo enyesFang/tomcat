@@ -48,6 +48,7 @@ import javax.servlet.descriptor.JspConfigDescriptor;
  *
  * @see Servlet#getServletConfig
  * @see ServletConfig#getServletContext
+ * @see org.apache.catalina.core.ApplicationContext 实现类
  */
 public interface ServletContext {
 

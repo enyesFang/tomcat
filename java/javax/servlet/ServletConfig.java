@@ -21,6 +21,7 @@ import java.util.Enumeration;
 /**
  * A servlet configuration object used by a servlet container to pass
  * information to a servlet during initialization.
+ * Servlet的一些配置属性。
  */
 public interface ServletConfig {
 

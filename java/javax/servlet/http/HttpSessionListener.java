@@ -32,7 +32,7 @@ public interface HttpSessionListener extends EventListener {
     /**
      * Notification that a session was created.
      * The default implementation is a NO-OP.
-     *
+     * 当一个HttpSession对象被创建时触发。
      * @param se
      *            the notification event
      */
@@ -42,7 +42,7 @@ public interface HttpSessionListener extends EventListener {
     /**
      * Notification that a session is about to be invalidated.
      * The default implementation is a NO-OP.
-     *
+     * 当一个HttpSession对象被销毁时触发。
      * @param se
      *            the notification event
      */

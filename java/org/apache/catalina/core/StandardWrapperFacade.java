@@ -60,6 +60,7 @@ public final class StandardWrapperFacade
 
     /**
      * Wrapped context (facade).
+     * @see ApplicationContextFacade
      */
     private ServletContext context = null;
 
