@@ -461,6 +461,7 @@ public class ContextConfig implements LifecycleListener {
         }
 
         if (!context.getOverride()) {
+            // 先加载Context.xml配置文件。
             try (ConfigurationSource.Resource contextXmlResource =
                     ConfigFileLoader.getSource().getResource(defaultContextXml)) {
                 URL defaultContextUrl = contextXmlResource.getURI().toURL();
@@ -471,6 +472,7 @@ public class ContextConfig implements LifecycleListener {
                 // Not found
             }
 
+            // 加载 context.xml.default
             String hostContextFile = Container.getConfigPath(context, Constants.HostContextXml);
             try (ConfigurationSource.Resource contextXmlResource =
                     ConfigFileLoader.getSource().getConfResource(hostContextFile)) {

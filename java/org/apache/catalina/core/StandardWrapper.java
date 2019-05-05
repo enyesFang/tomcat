@@ -66,7 +66,9 @@ import org.apache.tomcat.util.modeler.Util;
  * Standard implementation of the <b>Wrapper</b> interface that represents
  * an individual servlet definition.  No child Containers are allowed, and
  * the parent Container must be a Context.
- *
+ * Servlet包装Context容器中的StandardWrapper。
+ * 为什么不直接使用Servlet对象，而是包装成StandardWrapper？这里的StandardWrapper作为Tomcat容器的一部分，具有容器特性。
+ * 而Servlet是一个独立的Web开发标准，不应该强耦合在Tomcat中。
  * @author Craig R. McClanahan
  * @author Remy Maucherat
  */
@@ -1001,6 +1003,8 @@ public class StandardWrapper extends ContainerBase
      * at least one initialized instance.  This can be used, for example, to
      * load servlets that are marked in the deployment descriptor to be loaded
      * at server startup time.
+     * 创建Servlet实例对象。
+     * 获取servletClass，并交由InstanceManager去创建一个基于servletClass的对象。
      * @return the loaded Servlet instance
      * @throws ServletException for a Servlet load error
      */
@@ -1095,7 +1099,10 @@ public class StandardWrapper extends ContainerBase
 
     }
 
-
+    /**
+     * 初始化Servlet。
+     * 这个方法很简单，就是调用Servlet.init方法，同时将包装了StandardWrapper对象的StandardWrapperFacade作为ServletConfig传给Servlet。
+     */
     private synchronized void initServlet(Servlet servlet)
             throws ServletException {
 
