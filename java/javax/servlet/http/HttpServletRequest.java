@@ -356,7 +356,8 @@ public interface HttpServletRequest extends ServletRequest {
      * <p>
      * To reconstruct an URL with a scheme and host, use
      * {@link #getRequestURL}.
-     *
+     * URI，是uniform resource identifier，统一资源标识符，用来唯一的标识一个资源。
+     * URI是一种语义上的抽象概念，可以是绝对的，也可以是相对的.
      * @return a <code>String</code> containing the part of the URL from the
      *         protocol name up to the query string
      * @see #getRequestURL
@@ -373,7 +374,8 @@ public interface HttpServletRequest extends ServletRequest {
      * <p>
      * This method is useful for creating redirect messages and for reporting
      * errors.
-     *
+     * URL则必须提供足够的信息来定位，所以，是绝对的.
+     * @see org.apache.catalina.util.RequestUtil#getRequestURL(HttpServletRequest)
      * @return a <code>StringBuffer</code> object containing the reconstructed
      *         URL
      */
